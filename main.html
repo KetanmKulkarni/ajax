@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+</head>
+
+<body>
+    <script>
+        function get() {
+    
+            var xhr = new XMLHttpRequest();
+    
+            var url = 'https://jsonplaceholder.typicode.com/todos/1';
+            xhr.open("GET", url, true);
+      
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            } 
+            xhr.send();
+        }
+
+        function post() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+              console.log(this.responseText);
+            }
+            var url = 'https://jsonplaceholder.typicode.com/posts';
+            xhr.open("POST", url);
+            xhr.send();          
+        }
+    </script>
+    <button type="button" onclick="get()">Get</button>
+    
+    <button type="button" onclick="post()">Post</button>
+</body>
+
+</html>
+
